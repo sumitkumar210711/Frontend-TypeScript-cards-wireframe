@@ -1,0 +1,12 @@
+.post-id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 100px;
+    margin-right: 30px;
+}
+
+.cancel{
+    border-radius: 100px;
+}
