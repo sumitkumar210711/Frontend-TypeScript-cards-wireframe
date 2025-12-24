@@ -76,7 +76,7 @@ const handleCancel = (id: number): void => {
             </div>
             
             <div>
-                <button className='cancel text-red-600 bg-white text-2xl h-14 w-14 ml-6'
+                <button className='cancel text-red-600 bg-white text-2xl h-14 w-14 ml-6 cursor-pointer'
                 
 
                 onClick={()=>handleCancel(post.id)}
@@ -96,10 +96,10 @@ const handleCancel = (id: number): void => {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-4 py-2 rounded ${
+              className={`px-3 py-1 rounded-full  ${
                 currentPage === page
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200'
+                  ? 'rounded-full bg-white text-black'
+                  : 'bg-gray-300 text-white'
               }`}
             >
               {page}

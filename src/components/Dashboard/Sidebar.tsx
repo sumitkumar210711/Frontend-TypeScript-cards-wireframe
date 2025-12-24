@@ -1,7 +1,16 @@
-import type{JSX} from 'react';
+import{useState, type JSX} from 'react';
 import './sidebar.css'
 
 const Sidebar = ():JSX.Element=>{
+    const [isListen, setIsListen] =useState<boolean>(false);
+    const [isbuttonTwo, setIsButtonTwo] = useState<boolean>(true);
+
+    const handleListen = () =>{
+        if(!isListen)
+            setIsListen(true);
+        else
+            setIsListen(false);
+    }
     return(
         <div className='flex flex-col items-center mt-28 gap-12 '>
         <div className='sidebar-box1 bg-white  w-[250px] shadow shadow-xl'>
@@ -13,21 +22,32 @@ const Sidebar = ():JSX.Element=>{
                     <p className='mt-[-3px]'>Here's your News!</p>
             </div>
         </div>
-        <div className='sidebar-box2 bg-white h-16 w-[250px] shadow shadow-lg'>
-            <h1 className='font-bold text-2xl'> View Toggle</h1>
-            <div className='flex flex-row '>
-                  <button>
 
+        {!isListen && (
+        <div className='sidebar-box2 bg-white w-[250px] shadow shadow-lg'>
+            <h1 className='font-bold text-2xl text-center'> View Toggle</h1>
+            <div className='text-center'>
+
+                  <button className={isbuttonTwo ? 'px-4 py-3 bg-gray-300':'px-4 py-3 bg-green-200'}
+                  onClick={()=> setIsButtonTwo(false)}>
+                           B1
                   </button>
-                  <button>
 
+                  <button className={isbuttonTwo ? 'px-4 py-3 bg-green-300 ':'px-4 py-3 bg-gray-300'}
+                   onClick={()=> setIsButtonTwo(true)}>
+              B2
                   </button>
             </div>
+
         </div>
+        )}
+
         <div className='sidebar-box2 bg-white w-[250px]'>
             <h1 className='font-bold text-2xl'> Have a Feedback?</h1>
             <div className='flex flex-row '>
-                  <button className='listen1 font-bold text-lg bg-green-300 h-12'>We're Listening</button>
+                  <button className='listen1 font-bold text-lg bg-green-300 h-12 cursor-pointer'
+                  onClick={handleListen}
+                  >We're Listening</button>
             </div>
         </div>
         
